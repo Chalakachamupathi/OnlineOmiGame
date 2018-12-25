@@ -1,5 +1,5 @@
 
-FROM openjdk:8-jdk-alpine
+FROM openjdk:8-jdk-alpine AS MAVEN_TOOL
 # ----
 # Install Maven
 RUN apk add --no-cache curl tar bash
@@ -20,12 +20,12 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 # install maven dependency packages (keep in image)
 COPY pom.xml /usr/src/app
-RUN mvn -T 1C clean install && rm -rf target
+RUN mvn -T 1C clean install
 # copy other source files (keep in image)
 COPY src /usr/src/app/src/
 #Doker running part
-#FROM tomcat:8.5.37-jre8
+FROM tomcat:8.5.37-jre8
 
-#COPY /target/OnlineOmiGame-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/OnlineOmiGame.war
+COPY --from=MAVEN_TOOL /usr/src/app/target/OnlineOmiGame-1.0-SNAPSHOT.war $CATALINA_HOME/webapps/OnlineOmiGame.war
 
-#CMD ["catalina.sh", "run"]
+CMD ["catalina.sh", "run"]
