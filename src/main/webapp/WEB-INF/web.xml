@@ -2,11 +2,11 @@
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <servlet>
         <servlet-name>OpenServlet</servlet-name>
-        <servlet-class>Servlet.OpenServlet</servlet-class>
+        <servlet-class>java.Servlet.OpenServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PlayCardsServlet</servlet-name>
-        <servlet-class>Servlet.PlayCardsServlet</servlet-class>
+        <servlet-class>java.Servlet.PlayCardsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>OpenServlet</servlet-name>
