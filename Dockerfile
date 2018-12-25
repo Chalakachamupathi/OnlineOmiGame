@@ -23,9 +23,9 @@ COPY pom.xml /usr/src/app
 RUN mvn -T 1C clean install && rm -rf target
 # copy other source files (keep in image)
 COPY src /usr/src/app/src/
+#Doker running part
+#FROM tomcat:8.5.37-jre8
 
-FROM tomcat:8.5.37-jre8
+#COPY /target/OnlineOmiGame-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/OnlineOmiGame.war
 
-COPY /target/OnlineOmiGame-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/OnlineOmiGame.war
-
-CMD ["catalina.sh", "run"]
+#CMD ["catalina.sh", "run"]
