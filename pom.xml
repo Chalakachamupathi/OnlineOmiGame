@@ -25,7 +25,7 @@
                 <version>2.4</version>
                 <configuration>
                     <!--<warSourceDirectory>main.webappapp/WEB-INF/</warSourceDirectory>-->
-                    <failOnMissingWebXml>true</failOnMissingWebXml>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
                     <webResources>
                         <resource>
                             <directory>${project.build.directory}</directory>
