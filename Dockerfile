@@ -20,12 +20,18 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 # install maven dependency packages (keep in image)
 COPY pom.xml /usr/src/app
-RUN mvn -T 1C clean install
 # copy other source files (keep in image)
-COPY src /usr/src/app/src/
+COPY src /usr/src/app/src
+RUN mvn -T 1C clean install
 #Doker running part
 FROM tomcat:8.5.37-jre8
 
 COPY --from=MAVEN_TOOL /usr/src/app/target/OnlineOmiGame-1.0-SNAPSHOT.war $CATALINA_HOME/webapps/OnlineOmiGame.war
 
-CMD ["catalina.sh", "run"]
+ENV JPDA_ADDRESS=8000
+ENV JPDA_TRANSPORT=dt_socket
+
+EXPOSE 8080 8000
+CMD ["catalina.sh", "jpda", "run"]
+
+#CMD ["catalina.sh", "run"]

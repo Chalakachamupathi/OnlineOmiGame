@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package java.Servlet;
+package Servlet;
 
 import java.util.ArrayList;
 import org.junit.After;
@@ -125,8 +125,8 @@ public class PlayerTest {
     @Test
     public void testCheckPlayablity() {
         System.out.println("checkPlayablity");
-        String currentHandCardType = "cards/0_1.png";
-        String currentCard = "cards/0_2.png";
+        String currentHandCardType = "main/webapp/cards/0_1.png";
+        String currentCard = "main/webapp/cards/0_2.png";
         Player instance = new Player("555");
         boolean expResult = true;
         boolean result = instance.checkPlayablity(currentHandCardType, currentCard);
