@@ -28,10 +28,10 @@ FROM tomcat:8.5.37-jre8
 
 COPY --from=MAVEN_TOOL /usr/src/app/target/OnlineOmiGame-1.0-SNAPSHOT.war $CATALINA_HOME/webapps/OnlineOmiGame.war
 
-ENV JPDA_ADDRESS=8000
-ENV JPDA_TRANSPORT=dt_socket
+#ENV JPDA_ADDRESS=8000
+#ENV JPDA_TRANSPORT=dt_socket
 
 EXPOSE 8080 8000
-CMD ["catalina.sh", "jpda", "run"]
+#CMD ["catalina.sh", "jpda", "run"]
 
-#CMD ["catalina.sh", "run"]
+CMD ["catalina.sh", "run"]
